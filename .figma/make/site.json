@@ -1,0 +1,10 @@
+{
+  "description": "Explore business registration, funding, compliance, and growth services for startups and companies, with expert guidance and consultation from Safemaxx.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
