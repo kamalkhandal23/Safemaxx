@@ -1,5 +1,4 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
-import logo from "./assets/safemaxx-logo.png";
 
 type IconName =
   | "arrow"
@@ -571,7 +570,7 @@ function Link({
 function Brand({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className={`brand ${light ? "light" : ""}`}>
-      <img src={logo} alt="Safemaxx Business Solutions logo" />
+      <img src="/safemaxx-logo.png?v=2" alt="Safemaxx Business Solutions logo" />
       <span>
         <b>Safemaxx</b>
         <small>Business Solutions</small>
@@ -626,7 +625,7 @@ function Intro({ onComplete }: { onComplete: () => void }) {
       </button>
       <div className="intro-content">
         <div className="intro-mark">
-          <img src={logo} alt="" />
+          <img src="/safemaxx-logo.png?v=2" alt="" />
         </div>
         <span className="intro-brand">Safemaxx</span>
         <span className="intro-caption">Business Solutions</span>
@@ -927,7 +926,7 @@ function Home() {
       <section className="section intro">
         <div className="container split">
           <div className="brand-art" data-reveal>
-            <img src={logo} alt="" />
+            <img src="/safemaxx-logo.png?v=2" alt="" />
             <p>Business, funding and compliance expertise working as one.</p>
             <b>
               Clear guidance.
@@ -1676,7 +1675,7 @@ function EnquiryPopup({
             <Icon name="close" size={18} />
           </button>
           <div className="enquiry-emblem">
-            <img src={logo} alt="Safemaxx" />
+            <img src="/safemaxx-logo.png?v=2" alt="Safemaxx" />
           </div>
           <span className="enquiry-overline">Safemaxx Business Solutions</span>
           <h2 id="enquiry-title">
