@@ -130,6 +130,62 @@ function Icon({ name, size = 22 }: { name: IconName; size?: number }) {
   );
 }
 
+type Testimonial = {
+  name: string;
+  text: string;
+};
+const googleReviewsUrl = "https://share.google/c0tsHzlXuGS8X353d";
+const testimonials: Testimonial[] = [
+  {
+    name: "Varddhi",
+    text: "Praised Ayush Mittal's professional, helpful approach and the clear guidance throughout the process.",
+  },
+  {
+    name: "Prince Khandelwal",
+    text: "Shared a great experience with the Safemaxx team and its services.",
+  },
+  {
+    name: "Divya Aswal",
+    text: "Described the service as smooth, professional, and reliable, and appreciated the team's support.",
+  },
+  {
+    name: "Gaurav Gauttam",
+    text: "Recommends Safemaxx for dependable ISO, trademark, and company-compliance support.",
+  },
+  {
+    name: "sonu aluminium",
+    text: "Praised the professional guidance for startup certification and funding-grant support from start to finish.",
+  },
+  {
+    name: "Manish Bhat",
+    text: "Described Safemaxx as professional and said the team explains its business services clearly.",
+  },
+  {
+    name: "Himanshu Sharma",
+    text: "Said Bhavesh and Priyanshu guided him at every step and made the process easy.",
+  },
+  {
+    name: "Rishabh Saini",
+    text: "Called it one of his best service experiences, praising timely support and professional service quality.",
+  },
+  {
+    name: "Saurabh kumar",
+    text: "Praised Safemaxx's service and support in helping his business grow.",
+  },
+  {
+    name: "sachin kinger",
+    text: "Praises the team's dedication and commendable work over several months.",
+  },
+  {
+    name: "Arpit Sharma",
+    text: "Thanked Anirudh for his help with trademark and certification work.",
+  },
+  {
+    name: "SUKHLAL MEENA",
+    text: "Said he was very satisfied with the service and recommends the team.",
+  },
+];
+
 const services = [
   [
     "Business Registration",
@@ -169,32 +225,233 @@ type Page = {
 };
 type SchemeOption = {
   name: string;
-  sector: string;
+  sectors: string[];
   type: string;
   focus: string;
   icon: IconName;
 };
 const schemeOptions: SchemeOption[] = [
   {
+    name: "Startup India Seed Fund Scheme (SISFS)",
+    sectors: ["Sector-agnostic", "Deep Tech & Electronics"],
+    type: "Grants",
+    focus:
+      "Seed capital routed through DPIIT-selected incubators: up to ₹20 lakh as a grant for proof of concept, prototyping or product trials, plus up to ₹50 lakh for market entry via convertible debentures or debt-linked instruments.",
+    icon: "rocket",
+  },
+  {
+    name: "NIDHI-PRAYAS",
+    sectors: ["Deep Tech & Electronics", "Sector-agnostic"],
+    type: "Grants",
+    focus:
+      "Up to ₹10 lakh to turn an idea into a working prototype through selected technology business incubators, with workspace access and mentoring.",
+    icon: "strategy",
+  },
+  {
+    name: "Biotechnology Ignition Grant (BIG)",
+    sectors: ["Biotech & Health"],
+    type: "Grants",
+    focus:
+      "BIRAC proof-of-concept grant of up to ₹50 lakh over 18 months for early-stage biotech, life-science, diagnostics and medical-device ideas.",
+    icon: "heart",
+  },
+  {
+    name: "NIDHI Seed Support Programme",
+    sectors: ["Deep Tech & Electronics", "Sector-agnostic"],
+    type: "Grants",
+    focus:
+      "Seed support through DST/NIDHI-supported incubators to help incubated startups move from prototype to product and first revenue.",
+    icon: "rocket",
+  },
+  {
+    name: "TIDE 2.0",
+    sectors: ["Deep Tech & Electronics", "IT & Software", "Agri & Food"],
+    type: "Grants",
+    focus:
+      "MeitY support for ICT-led startups through 51 incubators, including AI, IoT, blockchain, robotics, agriculture and clean energy.",
+    icon: "strategy",
+  },
+  {
+    name: "SAMRIDH",
+    sectors: ["IT & Software", "Deep Tech & Electronics"],
+    type: "Grants",
+    focus:
+      "MeitY accelerator support for software product startups, with funding alongside customer connect, investor access and market support.",
+    icon: "funding",
+  },
+  {
+    name: "Prime Minister's Employment Generation Programme (PMEGP)",
+    sectors: ["Manufacturing & MSME", "Agri & Food"],
+    type: "Grants",
+    focus:
+      "Margin-money subsidy on eligible new micro-enterprise projects, with project costs up to ₹50 lakh for manufacturing and ₹20 lakh for services.",
+    icon: "factory",
+  },
+  {
+    name: "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
+    sectors: ["Agri & Food", "Manufacturing & MSME"],
+    type: "Grants",
+    focus:
+      "Credit-linked capital subsidy, branding and common infrastructure support to help micro food-processing enterprises formalise and grow.",
+    icon: "leaf",
+  },
+  {
+    name: "RKVY Innovation & Agri-Entrepreneurship",
+    sectors: ["Agri & Food"],
+    type: "Grants",
+    focus:
+      "Idea-stage and pre-seed support for agri-business startups through recognised agribusiness incubators and cohort-based programmes.",
+    icon: "leaf",
+  },
+  {
+    name: "Startup India Fund of Funds 2.0",
+    sectors: ["Sector-agnostic", "Deep Tech & Electronics"],
+    type: "Equity & Funds",
+    focus:
+      "A ₹10,000 crore fund of funds operated by SIDBI that invests through SEBI-registered AIFs backing startups, including deep-tech and early-growth companies.",
+    icon: "funding",
+  },
+  {
+    name: "AgriSURE Fund",
+    sectors: ["Agri & Food"],
+    type: "Equity & Funds",
+    focus:
+      "Blended equity and debt for agritech and rural enterprises across the agricultural value chain, including machinery, post-harvest and climate-resilient inputs.",
+    icon: "leaf",
+  },
+  {
+    name: "IN-SPACe Seed Fund",
+    sectors: ["Defence & Space", "Deep Tech & Electronics"],
+    type: "Equity & Funds",
+    focus:
+      "Seed support for Indian space-sector startups, with access to ISRO facilities, technical mentoring and support for launch, satellite and earth-observation ventures.",
+    icon: "rocket",
+  },
+  {
+    name: "Venture Capital Fund for Scheduled Castes",
+    sectors: ["Inclusion & Social", "Manufacturing & MSME"],
+    type: "Equity & Funds",
+    focus:
+      "Concessional growth capital for eligible enterprises promoted by Scheduled Caste entrepreneurs through the IFCI ecosystem.",
+    icon: "funding",
+  },
+  {
+    name: "Credit Guarantee Scheme for Startups (CGSS)",
+    sectors: ["Sector-agnostic"],
+    type: "Credit & Loans",
+    focus:
+      "Guarantee cover that helps eligible lenders provide collateral-free debt to DPIIT-recognised startups, subject to lender and scheme criteria.",
+    icon: "shield",
+  },
+  {
+    name: "CGTMSE — Collateral-free credit for MSEs",
+    sectors: ["Manufacturing & MSME", "Sector-agnostic"],
+    type: "Credit & Loans",
+    focus:
+      "Credit guarantee cover for eligible micro and small enterprises borrowing from member lending institutions without third-party collateral.",
+    icon: "shield",
+  },
+  {
+    name: "Stand-Up India",
+    sectors: ["Inclusion & Social", "Manufacturing & MSME"],
+    type: "Credit & Loans",
+    focus:
+      "Composite bank loans from ₹10 lakh to ₹1 crore for eligible SC/ST and women entrepreneurs setting up a greenfield enterprise.",
+    icon: "funding",
+  },
+  {
+    name: "Pradhan Mantri Mudra Yojana (PMMY)",
+    sectors: ["Manufacturing & MSME", "Sector-agnostic"],
+    type: "Credit & Loans",
+    focus:
+      "Collateral-free loans for non-farm micro enterprises, including Shishu, Kishore, Tarun and eligible Tarun Plus borrowers.",
+    icon: "funding",
+  },
+  {
+    name: "Section 80-IAC — Startup tax holiday",
+    sectors: ["Sector-agnostic"],
+    type: "Tax & IP",
+    focus:
+      "Eligible DPIIT-recognised startups approved by the Inter-Ministerial Board may claim a 100% profit deduction for 3 of their first 10 years.",
+    icon: "tax",
+  },
+  {
+    name: "Startup IP fee rebates & fast-track examination",
+    sectors: ["Sector-agnostic", "Deep Tech & Electronics"],
+    type: "Tax & IP",
+    focus:
+      "DPIIT-recognised startups can access statutory patent and trademark filing fee rebates and request expedited patent examination.",
+    icon: "tax",
+  },
+  {
+    name: "BioNEST Bio-incubation",
+    sectors: ["Biotech & Health"],
+    type: "Incubation",
+    focus:
+      "BIRAC-supported bio-incubators offer life-science startups subsidised lab space, analytical instruments and regulatory guidance.",
+    icon: "heart",
+  },
+  {
+    name: "Atal Community Innovation Centres (ACIC)",
+    sectors: ["Inclusion & Social", "Sector-agnostic"],
+    type: "Incubation",
+    focus:
+      "Incubation support through Atal Innovation Mission centres in underserved regions, including Tier 2/3 cities and aspirational districts.",
+    icon: "building",
+  },
+  {
+    name: "GeM Startup Runway",
+    sectors: ["Sector-agnostic", "Deep Tech & Electronics"],
+    type: "Market Access",
+    focus:
+      "A route for DPIIT-recognised startups to list innovative products on the Government e-Marketplace and reach government buyers.",
+    icon: "globe",
+  },
+  {
+    name: "iDEX & ADITI (Defence)",
+    sectors: ["Defence & Space", "Deep Tech & Electronics"],
+    type: "Market Access",
+    focus:
+      "Challenge-based defence innovation programmes that connect startups with real armed-forces problems and offer grants for selected solutions.",
+    icon: "shield",
+  },
+  {
+    name: "Technology Development Fund (TDF)",
+    sectors: ["Defence & Space", "Deep Tech & Electronics", "Manufacturing & MSME"],
+    type: "Market Access",
+    focus:
+      "DRDO support for Indian industry, MSMEs and startups developing indigenous defence technologies, components and systems.",
+    icon: "factory",
+  },
+  {
+    name: "National SC-ST Hub",
+    sectors: ["Inclusion & Social", "Manufacturing & MSME"],
+    type: "Market Access",
+    focus:
+      "Support for SC/ST-owned MSEs to access public procurement through vendor development, certification, testing and marketing assistance.",
+    icon: "building",
+  },
+  {
+    name: "iStart Rajasthan",
+    sectors: ["Sector-agnostic", "IT & Software"],
+    type: "State",
+    focus:
+      "Rajasthan's startup programme offers eligible startups access to a monthly sustenance allowance, incubation, mentoring and acceleration.",
+    icon: "rocket",
+  },
+  {
     name: "NAIF",
-    sector: "Agriculture",
+    sectors: ["Agri & Food"],
     type: "Credit & Loans",
     focus: "Financing support for eligible storage, processing, logistics and farm-gate infrastructure.",
     icon: "leaf",
   },
   {
     name: "AHIDF",
-    sector: "Animal Husbandry",
+    sectors: ["Agri & Food", "Animal Husbandry"],
     type: "Credit & Loans",
     focus: "Infrastructure finance for eligible dairy, meat processing, feed and allied projects.",
     icon: "cow",
-  },
-  {
-    name: "Section 80-IAC",
-    sector: "Startups",
-    type: "Tax & Incentives",
-    focus: "Tax-exemption application guidance for eligible DPIIT-recognized startups.",
-    icon: "tax",
   },
 ];
 const pages: Record<string, Page> = {
@@ -509,9 +766,9 @@ const pages: Record<string, Page> = {
     eyebrow: "Government-backed opportunities",
     title: "Explore schemes aligned with real business needs.",
     intro:
-      "Understand NAIF, AHIDF and Startup India tax-exemption pathways before committing time and documentation.",
+      "Explore grants, finance, incubation and market-access programmes for startups, MSMEs and innovators across India.",
     overview:
-      "Safemaxx highlights agriculture infrastructure finance, animal husbandry infrastructure finance and Section 80-IAC tax exemption for eligible DPIIT-recognized startups. Each requires an individual eligibility assessment.",
+      "Safemaxx brings together central and state government opportunities across startup funding, loans, grants, tax and IP incentives, incubation and market access. Each scheme has its own eligibility requirements and application process.",
     icon: "strategy",
     dark: true,
     features: schemeOptions.map(
@@ -1169,8 +1426,82 @@ function Home() {
           </p>
         </div>
       </section>
+      <GoogleReviews />
       <CTA />
     </main>
+  );
+}
+
+function GoogleReviews() {
+  return (
+    <section className="section testimonials">
+      <div className="container">
+        <Heading
+          label="What clients say"
+          title={
+            <>
+              Trusted by businesses, <em>proven by experience.</em>
+            </>
+          }
+          text="Selected Google review highlights, condensed for display."
+        />
+        <div className="google-review-summary">
+          <div>
+            <span className="google-review-stars" aria-label="4.7 out of 5">
+              {"★★★★★"}
+            </span>
+            <strong>4.7/5</strong>
+            <span>26 Google reviews</span>
+          </div>
+          <a href={googleReviewsUrl} target="_blank" rel="noreferrer">
+            View all Google reviews <Icon name="arrow" size={15} />
+          </a>
+        </div>
+        <div className="google-review-marquee" aria-label="Selected Google review highlights">
+          <div className="google-review-track">
+            {[false, true].map((duplicate) => (
+              <div
+                className="google-review-group"
+                key={duplicate ? "duplicate" : "reviews"}
+                aria-hidden={duplicate}
+                role="list"
+              >
+                {testimonials.map((review, index) => (
+                  <article className="google-review-card" key={`${review.name}-${index}`} role="listitem">
+                    <div className="google-review-card-top">
+                      <div className="google-review-author">
+                        <span aria-hidden="true">
+                          {review.name
+                            .split(/\s+/)
+                            .map((part) => part[0])
+                            .slice(0, 2)
+                            .join("")
+                            .toUpperCase()}
+                        </span>
+                        <div>
+                          <strong>{review.name}</strong>
+                          <small>Google reviewer</small>
+                        </div>
+                      </div>
+                      <span className="google-review-stars" aria-label="5 out of 5 stars">
+                        {"★★★★★"}
+                      </span>
+                    </div>
+                    <p>{review.text}</p>
+                  </article>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <p className="google-review-attribution">
+          Review highlights are paraphrased from the screenshots shared.{" "}
+          <a href={googleReviewsUrl} target="_blank" rel="noreferrer">
+            See reviews on Google.
+          </a>
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -1188,9 +1519,9 @@ function SchemeFinder() {
   const [type, setType] = useState("All types");
   const [query, setQuery] = useState("");
   const matches = schemeOptions.filter((scheme) => {
-    const matchesSector = sector === "All sectors" || scheme.sector === sector;
+    const matchesSector = sector === "All sectors" || scheme.sectors.includes(sector);
     const matchesType = type === "All types" || scheme.type === type;
-    const searchText = `${scheme.name} ${scheme.sector} ${scheme.type} ${scheme.focus}`;
+    const searchText = `${scheme.name} ${scheme.sectors.join(" ")} ${scheme.type} ${scheme.focus}`;
     return matchesSector && matchesType && searchText.toLowerCase().includes(query.trim().toLowerCase());
   });
 
@@ -1201,7 +1532,7 @@ function SchemeFinder() {
           <span>Sector</span>
           <select value={sector} onChange={(event) => setSector(event.target.value)}>
             <option>All sectors</option>
-            {[...new Set(schemeOptions.map((scheme) => scheme.sector))].map((option) => (
+            {[...new Set(schemeOptions.flatMap((scheme) => scheme.sectors))].sort().map((option) => (
               <option key={option}>{option}</option>
             ))}
           </select>
@@ -1234,7 +1565,11 @@ function SchemeFinder() {
           {matches.map((scheme) => (
             <article className="scheme-result-card" key={scheme.name}>
               <div className="scheme-result-topline">
-                <span>{scheme.sector}</span>
+                <div className="scheme-result-sectors">
+                  {scheme.sectors.map((schemeSector) => (
+                    <span key={schemeSector}>{schemeSector}</span>
+                  ))}
+                </div>
                 <small>{scheme.type}</small>
               </div>
               <div className="scheme-result-icon">
