@@ -1,4 +1,5 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
+import tempSchemeImage from "./assets/temp_scheme.png";
 
 type IconName =
   | "arrow"
@@ -219,6 +220,8 @@ type Page = {
   overview: string;
   icon: IconName;
   features: [string, string][];
+  eligibility?: [string, string][];
+  documents?: string[];
   process: string[];
   faqs: [string, string][];
   dark?: boolean;
@@ -229,6 +232,7 @@ type SchemeOption = {
   type: string;
   focus: string;
   icon: IconName;
+  path?: string;
 };
 const schemeOptions: SchemeOption[] = [
   {
@@ -240,12 +244,13 @@ const schemeOptions: SchemeOption[] = [
     icon: "rocket",
   },
   {
-    name: "NIDHI-PRAYAS",
+    name: "NIDHI PRAYAS 2.0",
     sectors: ["Deep Tech & Electronics", "Sector-agnostic"],
     type: "Grants",
     focus:
-      "Up to ₹10 lakh to turn an idea into a working prototype through selected technology business incubators, with workspace access and mentoring.",
+      "Prototype-development support of up to ₹40 lakh through PRAYAS Centres, with technical guidance and access to prototyping infrastructure.",
     icon: "strategy",
+    path: "/schemes/nidhi-prayas-2-0",
   },
   {
     name: "Biotechnology Ignition Grant (BIG)",
@@ -256,12 +261,13 @@ const schemeOptions: SchemeOption[] = [
     icon: "heart",
   },
   {
-    name: "NIDHI Seed Support Programme",
+    name: "NIDHI Seed Support System (NIDHI-SSS)",
     sectors: ["Deep Tech & Electronics", "Sector-agnostic"],
-    type: "Grants",
+    type: "Equity & Funds",
     focus:
-      "Seed support through DST/NIDHI-supported incubators to help incubated startups move from prototype to product and first revenue.",
+      "Equity-linked seed support through DST-recognised incubators, with standard support up to ₹25 lakh and enhanced support up to ₹1 crore for selected startups.",
     icon: "rocket",
+    path: "/schemes/nidhi-sss",
   },
   {
     name: "TIDE 2.0",
@@ -438,20 +444,6 @@ const schemeOptions: SchemeOption[] = [
     focus:
       "Rajasthan's startup programme offers eligible startups access to a monthly sustenance allowance, incubation, mentoring and acceleration.",
     icon: "rocket",
-  },
-  {
-    name: "NAIF",
-    sectors: ["Agri & Food"],
-    type: "Credit & Loans",
-    focus: "Financing support for eligible storage, processing, logistics and farm-gate infrastructure.",
-    icon: "leaf",
-  },
-  {
-    name: "AHIDF",
-    sectors: ["Agri & Food", "Animal Husbandry"],
-    type: "Credit & Loans",
-    focus: "Infrastructure finance for eligible dairy, meat processing, feed and allied projects.",
-    icon: "cow",
   },
 ];
 const pages: Record<string, Page> = {
@@ -789,6 +781,167 @@ const pages: Record<string, Page> = {
       [
         "Can Safemaxx help with documents?",
         "Yes. Published services include eligibility, documentation and application support.",
+      ],
+    ],
+  },
+  "/schemes/nidhi-sss": {
+    eyebrow: "Department of Science & Technology scheme",
+    title: "NIDHI Seed Support System (NIDHI-SSS)",
+    intro:
+      "Seed support for eligible technology startups moving from validated innovation toward a market-ready product, routed through participating Technology Business Incubators.",
+    overview:
+      "NIDHI-SSS is supported by NSTEDB under the Department of Science and Technology and is delivered through approved Technology Business Incubators (TBIs). Published scheme details describe standard support up to ₹25 lakh and enhanced support up to ₹1 crore for exceptional cases. The instrument, amount and approval depend on the incubator’s assessment and current scheme guidelines.",
+    icon: "rocket",
+    dark: true,
+    features: [
+      [
+        "Seed support",
+        "Standard assistance may be available up to ₹25 lakh, with enhanced support up to ₹1 crore for selected high-potential startups.",
+      ],
+      [
+        "Equity-linked investment",
+        "Support may be structured as equity or an equity-linked investment through the participating incubator.",
+      ],
+      [
+        "Product and market readiness",
+        "Approved funds may support product development, trials, team costs and market entry.",
+      ],
+      [
+        "Incubator-backed access",
+        "Applications are assessed through DST-recognised TBIs and their seed-support committees.",
+      ],
+    ],
+    eligibility: [
+      [
+        "Registered Indian company",
+        "Applicants should be an Indian company; DPIIT recognition is preferred where applicable.",
+      ],
+      [
+        "Indian promoter shareholding",
+        "Indian promoters should hold at least 51% of the company’s shareholding.",
+      ],
+      [
+        "Independent Indian company",
+        "The applicant should not be a subsidiary of a multinational or foreign company.",
+      ],
+      [
+        "Validated product proposition",
+        "Show a clear unique selling proposition supported by customer validation.",
+      ],
+    ],
+    documents: [
+      "Certificate of Incorporation",
+      "DPIIT Recognition Certificate, if applicable",
+      "Company PAN and founders’ PAN/Aadhaar",
+      "Business plan and product development roadmap",
+      "Proof of physical or virtual incubation",
+      "Customer validation or USP evidence",
+      "Financial projections and shareholding pattern",
+      "Company bank account details",
+    ],
+    process: [
+      "Review startup, technology and funding fit",
+      "Prepare business plan, roadmap and evidence",
+      "Apply through a participating TBI",
+      "TBI committee evaluation and milestone-based funding",
+    ],
+    faqs: [
+      [
+        "How much support can a startup receive?",
+        "Published scheme details list standard support up to ₹25 lakh and enhanced support up to ₹1 crore for exceptional cases. The participating TBI determines the applicable amount and terms under current guidelines.",
+      ],
+      [
+        "Can I apply directly to DST?",
+        "Applications are made through participating Technology Business Incubators, usually during their application calls.",
+      ],
+      [
+        "Is funding guaranteed after applying?",
+        "No. The incubator’s committee assesses each application, and any support is subject to approval, available funds and scheme conditions.",
+      ],
+    ],
+  },
+  "/schemes/nidhi-prayas-2-0": {
+    eyebrow: "Department of Science & Technology scheme",
+    title: "NIDHI PRAYAS 2.0",
+    intro:
+      "Prototype-development support for innovators and early-stage startups turning technology ideas into working, testable products.",
+    overview:
+      "NIDHI PRAYAS 2.0 is a Department of Science and Technology initiative delivered through PRAYAS Centres (PCs) and Advance PRAYAS Centres (APCs). Published scheme details describe support up to ₹40 lakh and a project term of up to 15 months, alongside prototyping facilities, mentorship and technical guidance. Funding and terms depend on the centre’s call and current scheme rules.",
+    icon: "strategy",
+    dark: true,
+    features: [
+      [
+        "Prototype-development grant",
+        "Eligible proposals may receive support up to ₹40 lakh to design, build, test and validate a prototype.",
+      ],
+      [
+        "PRAYAS Centre network",
+        "PCs and APCs can provide maker labs, fabrication facilities, testing equipment and technical guidance.",
+      ],
+      [
+        "Mentorship and commercialization",
+        "Innovators can receive support to refine the prototype and plan its route toward commercialization.",
+      ],
+      [
+        "Project-term support",
+        "The scheme lists a project term of up to 15 months. A sustenance allowance of up to 20% may be available to eligible innovators with no other income source.",
+      ],
+    ],
+    eligibility: [
+      [
+        "Indian citizen",
+        "The applicant should be an Indian citizen.",
+      ],
+      [
+        "Eligible applicant type",
+        "Applications may be made by an individual innovator, startup, proprietorship, partnership, LLP or private limited company.",
+      ],
+      [
+        "Technology-based product",
+        "The proposal should be for a technology-based product with commercialization potential.",
+      ],
+      [
+        "Prototype-ready idea",
+        "The idea should be novel and require prototype development.",
+      ],
+      [
+        "No duplicate PRAYAS funding",
+        "The same idea should not have received prior or concurrent funding under NIDHI PRAYAS.",
+      ],
+      [
+        "Rights to the innovation",
+        "Applicants should own or be authorised to use the proposed innovation or intellectual property.",
+      ],
+    ],
+    documents: [
+      "Applicant identity proof, such as Aadhaar or PAN",
+      "Concept note or idea summary",
+      "Technical proposal and prototype development plan",
+      "Business or commercialization roadmap",
+      "Certificate of Incorporation, if applicable",
+      "Bank account details",
+      "Applicant’s educational or professional background",
+      "Proof of prior bootstrapping or co-investment, if any",
+      "Declaration of no concurrent NIDHI PRAYAS funding",
+    ],
+    process: [
+      "Assess the idea and match it with a suitable PC or APC",
+      "Prepare concept note, prototype plan and roadmap",
+      "Apply during an open PRAYAS Centre call",
+      "Centre evaluation, selection and prototype grant",
+    ],
+    faqs: [
+      [
+        "What is the maximum support?",
+        "Published scheme details list support up to ₹40 lakh per innovator. The actual award depends on the proposal, centre call and current guidelines.",
+      ],
+      [
+        "Can an individual innovator apply?",
+        "Yes. Eligible applicants can include individuals as well as startups and other approved business types.",
+      ],
+      [
+        "Can the same idea receive PRAYAS support more than once?",
+        "The same idea must not have prior or concurrent funding under NIDHI PRAYAS, subject to current scheme criteria.",
       ],
     ],
   },
@@ -1389,25 +1542,28 @@ function Home() {
           <div className="scheme-grid">
             {[
               [
-                "leaf",
-                "Agriculture infrastructure",
-                "NAIF",
-                "Financing support for eligible agriculture storage, processing and logistics.",
+                "rocket",
+                "Startup seed funding",
+                "NIDHI-SSS",
+                "Seed support for eligible technology startups through participating incubators.",
+                "/schemes/nidhi-sss",
               ],
               [
-                "cow",
-                "Animal husbandry",
-                "AHIDF",
-                "Finance for eligible dairy, meat, feed and allied infrastructure.",
+                "strategy",
+                "Prototype funding",
+                "NIDHI PRAYAS 2.0",
+                "Prototype-development support for eligible innovators and early-stage startups.",
+                "/schemes/nidhi-prayas-2-0",
               ],
               [
                 "tax",
                 "Startup India",
                 "Tax Exemption",
                 "Section 80-IAC guidance for eligible DPIIT-recognized startups.",
+                "/schemes",
               ],
             ].map((x) => (
-              <Link to="/schemes" className="scheme" data-reveal key={x[2]}>
+              <Link to={x[4]} className="scheme" data-reveal key={x[2]}>
                 <i>
                   <Icon name={x[0] as IconName} size={28} />
                 </i>
@@ -1577,8 +1733,9 @@ function SchemeFinder() {
               </div>
               <h3>{scheme.name}</h3>
               <p>{scheme.focus}</p>
-              <Link to="/contact" className="scheme-result-link">
-                Check eligibility <Icon name="arrow" size={16} />
+              <Link to={scheme.path || "/contact"} className="scheme-result-link">
+                {scheme.path ? "View scheme details" : "Check eligibility"}{" "}
+                <Icon name="arrow" size={16} />
               </Link>
             </article>
           ))}
@@ -1646,11 +1803,21 @@ function ServicePage({ data, showSchemeFinder = false }: { data: Page; showSchem
       <section className="section details">
         <div className="container">
           <Heading
-            label={showSchemeFinder ? "Explore opportunities" : "What we support"}
+            label={
+              showSchemeFinder
+                ? "Explore opportunities"
+                : data.eligibility
+                  ? "Scheme benefits"
+                  : "What we support"
+            }
             title={
               showSchemeFinder ? (
                 <>
                   Find a scheme for your <em>next step.</em>
+                </>
+              ) : data.eligibility ? (
+                <>
+                  Practical support for <em>eligible innovators.</em>
                 </>
               ) : (
                 <>
@@ -1674,6 +1841,52 @@ function ServicePage({ data, showSchemeFinder = false }: { data: Page; showSchem
           )}
         </div>
       </section>
+      {data.eligibility && (
+        <section className="section details scheme-eligibility">
+          <div className="container">
+            <Heading
+              label="Eligibility"
+              title={
+                <>
+                  Who can <em>apply?</em>
+                </>
+              }
+            />
+            <div className="detail-grid">
+              {data.eligibility.map(([title, description], index) => (
+                <article data-reveal key={title}>
+                  <small>{String(index + 1).padStart(2, "0")}</small>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+      {data.documents && (
+        <section className="section scheme-document-section">
+          <div className="container">
+            <Heading
+              label="Application preparation"
+              title={
+                <>
+                  Documents to <em>prepare.</em>
+                </>
+              }
+            />
+            <ul className="scheme-documents">
+              {data.documents.map((document) => (
+                <li key={document}>{document}</li>
+              ))}
+            </ul>
+            <p className="scheme-filter-note">
+              The participating centre or authority may request additional documents under current
+              scheme guidelines.
+            </p>
+          </div>
+        </section>
+      )}
       <section className="section internal-process">
         <div className="container">
           <Heading left label="Our process" title="Straightforward from start to finish." />
@@ -1935,7 +2148,7 @@ function EnquiryPopup({
 
   useEffect(() => {
     if (path !== "/" || dismissed) return;
-    const timer = window.setTimeout(() => setOpen(true), 10000);
+    const timer = window.setTimeout(() => setOpen(true), 4000);
     return () => window.clearTimeout(timer);
   }, [path, dismissed]);
 
@@ -2009,29 +2222,15 @@ function EnquiryPopup({
           <button className="enquiry-close" aria-label="Close enquiry form" onClick={dismiss}>
             <Icon name="close" size={18} />
           </button>
-          <div className="enquiry-emblem">
-            <img src="/favicon.png?v=3" alt="Safemaxx" />
-          </div>
-          <span className="enquiry-overline">Safemaxx Business Solutions</span>
-          <h2 id="enquiry-title">
-            Your next move deserves <em>clear direction.</em>
-          </h2>
-          <p>
-            Share what you’re planning. We’ll help you find a practical next step for your business.
-          </p>
-          <div className="enquiry-highlights">
-            <span>
-              <Icon name="shield" size={16} /> Expert-led guidance
-            </span>
-            <span>
-              <Icon name="globe" size={16} /> Support across India
-            </span>
-          </div>
-          <small>Business setup · Funding · Compliance · Growth</small>
+          <img
+            className="enquiry-promo-image"
+            src={tempSchemeImage}
+            alt="Chief Minister Yuva Swarozgar Yojana scheme information"
+          />
         </div>
         <div className="enquiry-content">
           <span className="eyebrow">Complimentary consultation</span>
-          <h3>How can we help?</h3>
+          <h3 id="enquiry-title">How can we help?</h3>
           <p>Tell us a little about your requirement to get started.</p>
           <ContactForm compact />
         </div>
