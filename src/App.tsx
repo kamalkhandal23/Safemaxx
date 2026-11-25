@@ -1,5 +1,5 @@
 import { FormEvent, ReactNode, useEffect, useRef, useState } from "react";
-import tempSchemeImage from "./assets/temp_scheme.png";
+import tempSchemeImage from "./assets/temp_scheme1.png";
 
 type IconName =
   | "arrow"
